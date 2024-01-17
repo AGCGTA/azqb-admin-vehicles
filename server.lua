@@ -1,9 +1,5 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 
--- QBCore.Commands.Add('car', Lang:t('command.car.help'), { { name = Lang:t('command.car.params.model.name'), help = Lang:t('command.car.params.model.help') } }, true, function(source, args)
---     TriggerClientEvent('QBCore:Command:SpawnVehicle', source, args[1])
--- end, 'admin')
-
 QBCore.Commands.Add("gogarage", Lang:t("command.gogarage.help"), { { name = Lang:t("command.gogarage.params.plate.name"), help = Lang:t("command.gogarage.params.plate.help") } }, true, function(source, args)
     local plate = args[1]:upper()
     local query = MySQL.query.await('SELECT * FROM player_vehicles WHERE plate = ?', {plate})
